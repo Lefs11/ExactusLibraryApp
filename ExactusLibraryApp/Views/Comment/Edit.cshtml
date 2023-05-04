@@ -1,0 +1,35 @@
+﻿@model ExactusLibraryApp.Models.Comment
+@{
+}
+
+<form method="post">
+    <input hidden asp-for="Id" />
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Edit Comment</h2>
+            <hr />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Username">User</label>
+            <input asp-for="Username" class="form-control" />
+            <span asp-validation-for="Username" class="text-danger"></span>
+        </div>
+        <div class="input-group mb-3">
+            <span asp-for="Comments" class="input-group-text">Comment</span>
+            <textarea asp-for="Comments" class="form-control" aria-label="With textarea"></textarea>
+            <span asp-validation-for="Comments" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:150px">Update</button>
+        <a asp-controller="Comment" asp-action="GetAllComments" class="btn btn-secondary" style="width:150px">
+            Back to List
+        </a>
+    </div>
+</form>
+
+@section Scripts
+{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
